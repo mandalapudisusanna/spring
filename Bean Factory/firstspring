@@ -1,0 +1,64 @@
+Student.java
+
+package com.javatpoint;
+
+public class Student 
+{
+private String name;
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+public void displayInfo()
+{
+System.out.println("Hello"+name);	
+}
+}
+
+
+
+Test.java
+package com.javatpoint;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
+public class Test {
+    public static void main(String[] args) {
+
+        // Load XML file from classpath
+    	Resource resource = new ClassPathResource("applicationContext.xml");
+
+
+        // Create BeanFactory
+        BeanFactory factory = new XmlBeanFactory(resource);
+
+        // Get bean
+        Student student = (Student) factory.getBean("studentbean");
+
+        // Call method
+        student.displayInfo();
+    }
+}
+
+ApplicationContext.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentbean" class="com.javatpoint.Student">
+        <property name="name"  value="Susanna"/>
+    </bean>
+
+</beans>
+
