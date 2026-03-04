@@ -1,0 +1,13 @@
+log4j:WARN No appenders could be found for logger (org.springframework.context.support.ClassPathXmlApplicationContext).
+log4j:WARN Please initialize the log4j system properly.
+question id: 10
+question name: What is Java?
+Answers...
+Answer Information:
+Id: 1, Answer: Java is platform independent, Posted Date: Wed Mar 04 12:32:53 IST 2026
+Posted By:
+Id: 101Name: SusannaEmailId: susanna@gmail.com
+Answer Information:
+Id: 2, Answer: Spring is powerful framework, Posted Date: Wed Mar 04 12:32:53 IST 2026
+Posted By:
+Id: 102Name: JohnEmailId: john@gmail.com
