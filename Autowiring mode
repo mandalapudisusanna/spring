@@ -1,0 +1,81 @@
+B.java
+
+name package org.sssit
+
+package org.sssit;
+
+public class B {
+B()
+{
+	System.out.println("b is created");
+}
+void Print() {
+	System.out.println("hello b");
+}
+}
+
+
+A.java
+
+package org.sssit;
+
+public class A {
+B b;
+A()
+{
+	System.out.println("a is created");
+}
+public B getB() {
+	return b;
+}
+public void setB(B b) {
+	this.b=b;
+}
+void print() {
+	System.out.println("hello a");
+}
+void display() {
+	print();
+	b.Print();
+}
+}
+
+
+applicationContext.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="b" class="org.sssit.B"></bean>
+    <bean id="a" class="org.sssit.A" autowire="byName"> </bean>
+
+</beans>
+
+Test.java
+
+package org.sssit;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+    public static void main(String[] args) {
+        
+        ApplicationContext context = 
+            new ClassPathXmlApplicationContext("applicationContext.xml");
+        
+        A a = context.getBean("a", A.class);
+        a.display();
+    }
+}
+
+output:b is created
+a is created
+hello a
+hello b
