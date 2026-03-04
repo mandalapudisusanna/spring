@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- User Beans -->
+    <bean id="user1" class="com.javatpoint.User">
+        <property name="id" value="101"/>
+        <property name="name" value="Susanna"/>
+        <property name="email" value="susanna@gmail.com"/>
+    </bean>
+
+    <bean id="user2" class="com.javatpoint.User">
+        <property name="id" value="102"/>
+        <property name="name" value="John"/>
+        <property name="email" value="john@gmail.com"/>
+    </bean>
+
+    <!-- Answer Beans -->
+    <bean id="answer1" class="com.javatpoint.Answer">
+        <property name="id" value="1"/>
+        <property name="answer" value="Java is platform independent"/>
+        <property name="postedDate">
+            <bean class="java.util.Date"/>
+        </property>
+    </bean>
+
+    <bean id="answer2" class="com.javatpoint.Answer">
+        <property name="id" value="2"/>
+        <property name="answer" value="Spring is powerful framework"/>
+        <property name="postedDate">
+            <bean class="java.util.Date"/>
+        </property>
+    </bean>
+
+    <!-- Question Bean with Map Injection -->
+    <bean id="q" class="com.javatpoint.Question">
+        <property name="id" value="10"/>
+        <property name="name" value="What is Java?"/>
+        <property name="answer">
+            <map>
+                <entry key-ref="answer1" value-ref="user1"/>
+                <entry key-ref="answer2" value-ref="user2"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
