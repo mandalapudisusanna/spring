@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Parent Employee -->
+    <bean id="e" class="com.javatpoint.Employee">
+        <constructor-arg value="12"/>
+        <constructor-arg value="Sonoo"/>
+    </bean>
+
+    <!-- Address Bean -->
+    <bean id="a1" class="com.javatpoint.Address">
+        <constructor-arg value="Street 1"/>
+        <constructor-arg value="Ghaziabad"/>
+        <constructor-arg value="UP"/>
+        <constructor-arg value="India"/>
+    </bean>
+
+    <!-- Child Employee with Address -->
+    <bean id="e1" class="com.javatpoint.Employee" parent="e">
+        <constructor-arg ref="a1"/>
+    </bean>
+
+</beans>
