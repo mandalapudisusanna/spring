@@ -9,3 +9,36 @@ package org.sssit;
  System.out.println("hello b");
  }
  }
+
+A.java
+
+package org.sssit;
+public class A{
+B b;
+A(){
+System.out.println("a is created");
+}
+public B getB(){
+return b;
+}
+public void setB(Bb)
+{
+this.b=b;
+}
+void print(){
+System.out.println("hello a");
+}
+void display(){
+print();
+b.print();
+}
+}
+
+
+applicationContext.xml
+<bean id="b" class="org.sssit.B"></bean>
+<bean id="a" class="org.sssit.A" autowire="byName";
+</bean>
+
+Test.java
+
