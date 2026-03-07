@@ -1,0 +1,11 @@
+B.java 
+package org.sssit;
+ public class B{
+ B()
+ {
+ System.out.println("b isc created");
+ }
+ void print(){
+ System.out.println("hello b");
+ }
+ }
