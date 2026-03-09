@@ -1,0 +1,60 @@
+A.java
+
+package com.javatpoint;
+
+public class A {
+
+    // creating static object
+    private static final A obj = new A();
+
+    // private constructor
+    private A() {
+        System.out.println("privateConstructor");
+    }
+
+    // factory method
+    public static A getA() {
+        System.out.println("factoryMethod");
+        return obj;
+    }
+
+    public void msg() {
+        System.out.println("hello user");
+    }
+
+
+applicationContetx.xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="a"
+          class="com.javatpoint.A"
+          factory-method="getA">
+    </bean>
+
+</beans>
+
+
+Test.java
+package com.javatpoint;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        A a = (A) context.getBean("a");
+        a.msg();
+    }
+}
+}
